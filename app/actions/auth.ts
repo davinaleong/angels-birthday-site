@@ -10,7 +10,7 @@ export async function checkPassphrase(
   formData: FormData
 ): Promise<AuthState> {
   const passphrase = formData.get('passphrase')
-  const expected = process.env.SITE_PASSPHRASE
+  const expected = process.env.SITE_PASSPHRASE?.trim()
 
   if (!expected) {
     return { error: 'Site is not yet configured — come back soon.' }
